@@ -1,0 +1,70 @@
+Aditi dashboard The Task to be done :
+
+Dashboard for Historical Data
+
+Users can view information from previous days.
+Team-Based Data Restriction
+
+Data should be accessible only to members of the corresponding team.
+Manager Access & Download
+
+Managers can view and download data specific to their team.
+Pre-Populated User Details
+
+The name and email fields should be pre-filled and set as read-only.
+Blockers Section
+
+Provide a select box for blockers.
+If selected, display a text area for entering blocker details; otherwise, keep it NULL.
+Dependency Field
+
+If selected, allow the user to enter:
+
+Dependency details
+Expected resolution date
+Blockers: Risks, Issues, Dependencies
+
+If a blocker is selected, allow users to:
+
+Choose a type (Risk, Issue, Dependency, Blocker).
+Enter a description.
+Specify a resolution date.
+Blocker Input Section
+
+Users can:
+
+Enter blocker details.
+Select a category (Issue, Dependency, Risk).
+Choose a resolution date.
+Click a "+" button to add multiple entries.
+
+
+
+
+-- Create the Aditi_team_members table
+CREATE TABLE IF NOT EXISTS Aditi_team_members (
+  id SERIAL PRIMARY KEY,
+  team_name TEXT NOT NULL,
+  employee_id TEXT NOT NULL,
+  manager_name TEXT NOT NULL,
+  team_member_name TEXT NOT NULL,
+  created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
+  updated_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
+);
+
+-- Add unique constraint to prevent duplicate entries
+-- This prevents the same employee from being added to the same team multiple times
+ALTER TABLE Aditi_team_members 
+  ADD CONSTRAINT unique_employee_team 
+  UNIQUE (team_name, employee_id);
+
+-- Create index for faster queries when filtering by team name
+CREATE INDEX idx_team_name ON Aditi_team_members (team_name);
+
+-- Create index for faster queries when filtering by manager name
+CREATE INDEX idx_manager_name ON Aditi_team_members (manager_name);
+
+-- Add comment to describe the table
+COMMENT ON TABLE Aditi_team_members IS 'Stores team membership information including team names, employees, and managers';
+
+select count(*) from Aditi_team_members limit 10;

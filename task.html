@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Plan To-Do List</title>
+    <style>
+        :root {
+            --dark-bg: #1a1a1a;
+            --darker-bg: #242424;
+            --accent: #4CAF50;
+            --text: #e0e0e0;
+            --secondary: #666;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', system-ui, sans-serif;
+        }
+
+        body {
+            background-color: var(--dark-bg);
+            color: var(--text);
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: var(--accent);
+        }
+
+        .todo-list {
+            list-style: none;
+        }
+
+        .todo-item {
+            background: var(--darker-bg);
+            padding: 1rem;
+            margin-bottom: 0.8rem;
+            border-radius: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+
+        .todo-item:hover {
+            transform: translateX(5px);
+        }
+
+        .todo-text {
+            flex: 1;
+        }
+
+        .todo-done {
+            background: #2d3436;
+            text-decoration: line-through;
+            opacity: 0.7;
+        }
+
+        .checkbox {
+            margin-right: 15px;
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+        }
+
+        .section-title {
+            color: var(--accent);
+            margin-top: 1.5rem;
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            
+            .todo-item {
+                padding: 0.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Daily Update Project Plan</h1>
+        
+        <div class="todo-section">
+            <h2 class="section-title">Dashboard Features</h2>
+            <ul class="todo-list">
+                <li class="todo-item">
+                    <input type="checkbox" class="checkbox" onclick="toggleDone(this)">
+                    <span class="todo-text">Implement historical data view functionality</span>
+                </li>
+            </ul>
+
+            <h2 class="section-title">Access Control</h2>
+            <ul class="todo-list">
+                <li class="todo-item">
+                    <input type="checkbox" class="checkbox" onclick="toggleDone(this)">
+                    <span class="todo-text">Implement team-based data restriction</span>
+                </li>
+                <li class="todo-item">
+                    <input type="checkbox" class="checkbox" onclick="toggleDone(this)">
+                    <span class="todo-text">Set up manager access and download capabilities</span>
+                </li>
+            </ul>
+
+            <h2 class="section-title">User Details</h2>
+            <ul class="todo-list">
+                <li class="todo-item">
+                    <input type="checkbox" class="checkbox" onclick="toggleDone(this)">
+                    <span class="todo-text">Implement pre-populated user details (name and email) as read-only</span>
+                </li>
+            </ul>
+
+            <h2 class="section-title">Blockers Section</h2>
+            <ul class="todo-list">
+                <li class="todo-item">
+                    <input type="checkbox" class="checkbox" onclick="toggleDone(this)">
+                    <span class="todo-text">Create select box for blockers</span>
+                </li>
+                <li class="todo-item">
+                    <input type="checkbox" class="checkbox" onclick="toggleDone(this)">
+                    <span class="todo-text">Add conditional text area for blocker details</span>
+                </li>
+            </ul>
+
+            <h2 class="section-title">Dependency Features</h2>
+            <ul class="todo-list">
+                <li class="todo-item">
+                    <input type="checkbox" class="checkbox" onclick="toggleDone(this)">
+                    <span class="todo-text">Add dependency details input</span>
+                </li>
+                <li class="todo-item">
+                    <input type="checkbox" class="checkbox" onclick="toggleDone(this)">
+                    <span class="todo-text">Implement expected resolution date field</span>
+                </li>
+            </ul>
+
+            <h2 class="section-title">Blocker Input Section</h2>
+            <ul class="todo-list">
+                <li class="todo-item">
+                    <input type="checkbox" class="checkbox" onclick="toggleDone(this)">
+                    <span class="todo-text">Create type selection (Risk, Issue, Dependency, Blocker)</span>
+                </li>
+                <li class="todo-item">
+                    <input type="checkbox" class="checkbox" onclick="toggleDone(this)">
+                    <span class="todo-text">Add description field</span>
+                </li>
+                <li class="todo-item">
+                    <input type="checkbox" class="checkbox" onclick="toggleDone(this)">
+                    <span class="todo-text">Implement resolution date picker</span>
+                </li>
+                <li class="todo-item">
+                    <input type="checkbox" class="checkbox" onclick="toggleDone(this)">
+                    <span class="todo-text">Add "+" button for multiple entries</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        function toggleDone(checkbox) {
+            const todoItem = checkbox.parentElement;
+            todoItem.classList.toggle('todo-done');
+        }
+    </script>
+</body>
+</html> 

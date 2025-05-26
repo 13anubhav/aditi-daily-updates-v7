@@ -1,0 +1,21 @@
+{
+  "name": "Aditi Daily Updates",
+  "short_name": "Aditi Updates",
+  "description": "Official Aditi employee daily update portal",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#1a1f2e",
+  "theme_color": "#1a1f2e",
+  "icons": [
+    {
+      "src": "/aditi.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/aditi.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+} 
